@@ -22,31 +22,13 @@ const getTodos = (resource) => {
 };
 
 getTodos('todos/muhd.json').then((data) => {
-    console.log('Promise resolved: ', data);
+    console.log('Promise 1 resolved: ', data);
+    return getTodos('todos/musa.json').then(data => {
+        console.log('Promise 2 resolved:', data);
+        return getTodos('todos/yusuf.json').then(data => {
+            console.log('Promise 3 resolved:',data);
+        });
+    });
 }).catch(err => {
     console.log('Promise rejected: ', err);
 });
-
-//promise example
-
-// const getSomething = () => {
-
-//     return new Promise((resolve, reject) => {
-//         // fetch some data
-//         resolve('Some data');
-//         // reject('some error');
-//     });
-
-// };
-
-// getSomething().then((data) => {
-//     console.log(data);
-// }, (err) => {
-//     console.log(err);
-// });
-
-// getSomething().then(data => {
-//     console.log(data);
-// }).catch(err => {
-//     console.log(err);
-// });
