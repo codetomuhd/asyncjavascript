@@ -21,7 +21,7 @@ const getTodos = (resource) => {
 
 };
 
-getTodos('todos/muhd.json').then((data) => {
+getTodos('todos/muhd.json').then(data => {
     console.log('Promise 1 resolved: ', data);
     return getTodos('todos/musa.json').then(data => {
         console.log('Promise 2 resolved:', data);
